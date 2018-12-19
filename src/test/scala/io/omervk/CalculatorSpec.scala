@@ -11,6 +11,10 @@ class CalculatorSpec extends FreeSpec with Matchers {
     a[RuntimeException] should be thrownBy Calculator.addAll(null)
   }
 
+  "it should throw an exception when input is a string" in {
+    a[RuntimeException] should be thrownBy Calculator.addAll("test")
+  }
+
   "it should throw an exception when input is an number" in {
     a[RuntimeException] should be thrownBy Calculator.addAll(1)
   }
@@ -27,11 +31,19 @@ class CalculatorSpec extends FreeSpec with Matchers {
     a[RuntimeException] should be thrownBy Calculator.addAll(List("1"))
   }
 
+  "it should throw an exception when the list mixes a string and a number" in {
+    a[RuntimeException] should be thrownBy Calculator.addAll(List("1", 2))
+  }
+
   "it should throw an exception when the list contains a double" in {
     a[RuntimeException] should be thrownBy Calculator.addAll(List(1.23))
   }
 
   "it should throw an exception when the list contains a negative number" in {
     a[RuntimeException] should be thrownBy Calculator.addAll(List(-1))
+  }
+
+  "it should throw an exception when the list contains a negative number among all of the others" in {
+    a[RuntimeException] should be thrownBy Calculator.addAll(List(1, 2, -1))
   }
 }
