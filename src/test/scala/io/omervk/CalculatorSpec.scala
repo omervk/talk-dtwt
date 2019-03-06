@@ -1,10 +1,8 @@
 package io.omervk
 
-import org.scalatest.{FreeSpec, Matchers}
-
-class CalculatorSpec extends FreeSpec with Matchers {
+class CalculatorSpec extends TypedFreeSpec {
   "it should work when input is valid" in {
-    Calculator.addAll(List(1, 2, 3)) should equal(6)
+    Calculator.addAll(List(1, 2, 3)) shouldBeTypedEqual 6
   }
 
   "it should throw an exception when input is null" in {
