@@ -37,8 +37,8 @@ class CalculatorSpec extends TypedFreeSpec {
     a[RuntimeException] should be thrownBy Calculator.addAll(List(1.23))
   }
 
-  "it should throw an exception when the list contains a negative number" in {
-    a[RuntimeException] should be thrownBy Calculator.addAll(List(-1))
+  "it should throw an exception when the list contains negative numbers" in {
+    a[RuntimeException] should be thrownBy Calculator.addAll(List(-1, -2))
   }
 
   "it should throw an exception when the list contains a negative number among all of the others" in {
