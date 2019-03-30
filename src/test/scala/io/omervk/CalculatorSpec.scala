@@ -18,7 +18,7 @@ class CalculatorSpec extends TypedFreeSpec {
   }
 
   "it should throw an exception when the list is empty" in {
-    a[RuntimeException] should be thrownBy Calculator.addAll(Nil)
+    a[RuntimeException] should be thrownBy Calculator.addAll(List.empty)
   }
 
   "it should throw an exception when the list contains a null value" in {
